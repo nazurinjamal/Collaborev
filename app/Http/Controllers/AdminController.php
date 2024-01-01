@@ -22,7 +22,17 @@ class AdminController extends Controller
     public function Profile(){
         $id = Auth::user()->id;
         $adminData = User::find($id);
-        return view('admin.admin_profile_view', compact('adminData'));
+
+        $role = $adminData->role;
+
+        if ($role == 'Author') {
+            return view('admin.admin_profile_view', compact('adminData'));
+        } elseif ($role == 'Reviewer') {
+            return view('admin.reviewer_profile_view', compact('adminData'));
+        } else {
+            // Handle other user roles or provide a default view
+            return view('admin.leader_profile_view', compact('adminData'));
+        }
 
     } //End Method
 
@@ -48,8 +58,9 @@ class AdminController extends Controller
         }
         $data->save();
 
-        return redirect()->route('admin.profile');
+        return redirect()->back();
 
     } //End Method
+
 }
 

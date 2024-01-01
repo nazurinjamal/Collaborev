@@ -7025,7 +7025,7 @@ textarea.form-control-lg {
 .offcanvas-start {
   top: 0;
   left: 0;
-  width: 400px;
+  width: 800px;
   border-right: 1px solid #f1f5f7;
   -webkit-transform: translateX(-100%);
           transform: translateX(-100%);
@@ -7034,7 +7034,7 @@ textarea.form-control-lg {
 .offcanvas-end {
   top: 0;
   right: 0;
-  width: 400px;
+  width: 800px;
   border-left: 1px solid #f1f5f7;
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
