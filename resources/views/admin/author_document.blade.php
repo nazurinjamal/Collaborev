@@ -336,9 +336,14 @@ addRequirementButton.addEventListener (
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Import CSV</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="exampleModalLabel">Import CSV</h5>               
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>              
             </div>
+            
+            <button type="button" style="margin:10px;" class="btn btn-dark waves-effect waves-light" 
+            data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">
+            <i class="ri-information-line align-middle me-2"></i>Read Me First</button>
+            
             <div class="modal-body">
                 <form action="/author/import" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -369,3 +374,29 @@ addRequirementButton.addEventListener (
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalScrollableTitle">CSV File Format</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body" style="color:black;">
+                                <p><img src="{{ asset('backend/assets/images/csv.png') }}"></p>
+                                <li>This is the accepted format for the CSV file.</li>
+                                <li>Make sure the delimiter is the comma ( , )</li>
+                                <li>If your description has comma(s), make sure to enclose your description with quotation marks (" ... ")</li>
+                                <br>
+                                <p><b>If you plan to write your requirements in the Excel Spreadsheet first, this would be the format :</b></p>
+                                <p><img src="{{ asset('backend/assets/images/excel.png') }}"></p>
+                                <p>Once you have done, simply export/download the file as a CSV file.</p>
+                                <p><center>Hope that helps!</center></p>
+                                <button type="button" class="btn btn-primary waves-effect waves-light" style="width:100%;">OK</button>
+                            </div>
+                            
+                            
+                            
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->

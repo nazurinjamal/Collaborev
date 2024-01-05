@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('requirements', function (Blueprint $table) {
             $table->id();
-            $table->string('tag')->unique();
+            $table->string('tag');
             $table->string('type');
             $table->string('module');
             $table->string('description');

@@ -72,49 +72,42 @@
                             <span class="step-title">Identifiable</span>
                         </a>
                     </li>
-
                     <li class="nav-item">
                         <a href="#progress-correctness" class="nav-link" data-toggle="tab">
                             <span class="step-number">03</span>
                             <span class="step-title">Correctness</span>
                         </a>
                     </li>
-
                     <li class="nav-item">
                         <a href="#progress-completeness" class="nav-link" data-toggle="tab">
                             <span class="step-number">04</span>
                             <span class="step-title">Completeness</span>
                         </a>
                     </li>
-
                     <li class="nav-item">
                         <a href="#progress-consistent" class="nav-link" data-toggle="tab">
                             <span class="step-number">05</span>
                             <span class="step-title">Consistent</span>
                         </a>
-                    </li>
-                    
+                    </li>      
                     <li class="nav-item">
                         <a href="#progress-concise" class="nav-link" data-toggle="tab">
                             <span class="step-number">06</span>
                             <span class="step-title">Concise</span>
                         </a>
-                    </li>
-                    
+                    </li>               
                     <li class="nav-item">
                         <a href="#progress-unambiguous" class="nav-link" data-toggle="tab">
                             <span class="step-number">07</span>
                             <span class="step-title">Unambiguous</span>
                         </a>
                     </li>
-
                     <li class="nav-item">
                         <a href="#progress-design" class="nav-link" data-toggle="tab">
                             <span class="step-number">08</span>
                             <span class="step-title">Design</span>
                         </a>
                     </li>
-
                     <li class="nav-item">
                         <a href="#progress-considerations" class="nav-link" data-toggle="tab">
                             <span class="step-number">09</span>
@@ -144,31 +137,39 @@
                                             <td class="table-dark table-bordered">1.1 Are all acronyms, abbreviations, terms and units of measure defined?</td>
                                             <td class="table-bordered"> 
                                             <select class="form-select" name="comply_1_1">
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
+                                                <option value="Yes" @if(optional($feedback1_1)->comply === 'Yes') selected @endif>Yes</option>
+                                                <option value="No" @if(optional($feedback1_1)->comply === 'No') selected @endif>No</option>
                                             </select>
                                             </td>
-                                            <td class="table-bordered col-4"><textarea id="feedback" name="feedback_1_1" class="form-control" rows="1" placeholder="e.g. AUT-01 - Acronym is not defined."></textarea></td>
+                                            <td class="table-bordered col-4"><input id="feedback" name="feedback_1_1" class="form-control" 
+                                            rows="3" value="@if ($feedback1_1){{ $feedback1_1->feedback }}@endif" placeholder="e.g. AUT-01 - Acronym is not defined.">
+                                            
+                                            </input></td>
                                         </tr>
                                         <tr>
                                             <td class="table-dark table-bordered">1.2 Are all requirements written at a consistent and appropriate level of detail?</td>
                                             <td class="table-bordered"> 
                                             <select class="form-select" name="comply_1_2">
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
+                                                <option value="Yes" @if(optional($feedback1_2)->comply === 'Yes') selected @endif>Yes</option>
+                                                <option value="No" @if(optional($feedback1_2)->comply === 'No') selected @endif>No</option>
                                             </select>
                                             </td>
-                                            <td class="table-bordered col-4"><textarea id="feedback" name="feedback_1_2" class="form-control" rows="1"></textarea></td>
+                                            <td class="table-bordered col-4"><input id="feedback" name="feedback_1_2" class="form-control" 
+                                            rows="1" value="@if ($feedback1_2){{ $feedback1_2->feedback }}@endif">
+                                            </input></td>
                                         </tr>
                                         <tr>
                                             <td class="table-dark table-bordered">1.3 Are assumptions that affect the requirements documented?</td>
                                             <td class="table-bordered"> 
                                             <select class="form-select" name="comply_1_3">
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
+                                                <option value="Yes" @if(optional($feedback1_3)->comply === 'Yes') selected @endif>Yes</option>
+                                                <option value="No" @if(optional($feedback1_3)->comply === 'No') selected @endif>No</option>
                                             </select>
                                             </td>
-                                            <td class="table-bordered col-4"><textarea id="feedback" name="feedback_1_3" class="form-control" rows="1"></textarea></td>
+                                            <td class="table-bordered col-4"><input id="feedback" name="feedback_1_3" class="form-control" rows="1"
+                                            value="@if ($feedback1_3){{ $feedback1_3->feedback }}@endif">
+                                            
+                                            </input></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -192,21 +193,26 @@
                                             <td class="table-dark table-bordered">2.1  Is each requirement uniquely and correctly identified?</td>
                                             <td class="table-bordered"> 
                                             <select class="form-select" name="comply_2_1">
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
+                                                <option value="Yes" @if(optional($feedback2_1)->comply === 'Yes') selected @endif>Yes</option>
+                                                <option value="No" @if(optional($feedback2_1)->comply === 'No') selected @endif>No</option>
                                             </select>
                                             </td>
-                                            <td class="table-bordered col-4"><textarea id="feedback" name="feedback_2_1" class="form-control" rows="1" placeholder="e.g. AUT-01 - Acronym is not defined."></textarea></td>
+                                            <td class="table-bordered col-4"><input id="feedback" name="feedback_2_1" class="form-control" rows="1" 
+                                            value="@if ($feedback2_1){{ $feedback2_1->feedback }}@endif" placeholder="e.g. AUT-01 - Acronym is not defined.">
+                                            
+                                            </input></td>
                                         </tr>
                                         <tr>
                                             <td class="table-dark table-bordered">2.2 Is each requirement traceable to its source (including derived requirements)? (Eg: When referring to the appendix or other dependent requirements)</td>
                                             <td class="table-bordered"> 
                                             <select class="form-select" name="comply_2_2">
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
+                                                <option value="Yes" @if(optional($feedback2_2)->comply === 'Yes') selected @endif>Yes</option>
+                                                <option value="No" @if(optional($feedback2_2)->comply === 'No') selected @endif>No</option>
                                             </select>
                                             </td>
-                                            <td class="table-bordered col-4"><textarea id="feedback" name="feedback_2_2" class="form-control" rows="1"></textarea></td>
+                                            <td class="table-bordered col-4"><input id="feedback" name="feedback_2_2" class="form-control" rows="1"
+                                            value="@if ($feedback2_2){{ $feedback2_2->feedback }}@endif">
+                                            </input></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -230,21 +236,25 @@
                                             <td class="table-dark table-bordered">3.1 Are all requirements free from content and grammatical errors?</td>
                                             <td class="table-bordered"> 
                                             <select class="form-select" name="comply_3_1">
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
+                                                <option value="Yes" @if(optional($feedback3_1)->comply === 'Yes') selected @endif>Yes</option>
+                                                <option value="No" @if(optional($feedback3_1)->comply === 'No') selected @endif>No</option>
                                             </select>
                                             </td>
-                                            <td class="table-bordered col-4"><textarea id="feedback" name="feedback_3_1" class="form-control" rows="1" placeholder="e.g. AUT-01 - Acronym is not defined."></textarea></td>
+                                            <td class="table-bordered col-4"><input id="feedback" name="feedback_3_1" class="form-control" rows="1" 
+                                            value="@if ($feedback3_1){{ $feedback3_1->feedback }}@endif" placeholder="e.g. AUT-01 - Acronym is not defined.">
+                                            </input></td>
                                         </tr>
                                         <tr>
                                             <td class="table-dark table-bordered">3.2 Are all internal cross-references to other requirements correct?</td>
                                             <td class="table-bordered"> 
                                             <select class="form-select" name="comply_3_2">
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
+                                                <option value="Yes" @if(optional($feedback3_2)->comply === 'Yes') selected @endif>Yes</option>
+                                                <option value="No" @if(optional($feedback3_2)->comply === 'No') selected @endif>No</option>
                                             </select>
                                             </td>
-                                            <td class="table-bordered col-4"><textarea id="feedback" name="feedback_3_2" class="form-control" rows="1"></textarea></td>
+                                            <td class="table-bordered col-4"><input id="feedback" name="feedback_3_2" class="form-control" rows="1"
+                                            value="@if ($feedback3_2){{ $feedback3_2->feedback }}@endif">
+                                            </input></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -268,81 +278,97 @@
                                             <td class="table-dark table-bordered">4.1 Are all classes of users included?</td>
                                             <td class="table-bordered"> 
                                             <select class="form-select" name="comply_4_1">
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
+                                                <option value="Yes" @if(optional($feedback4_1)->comply === 'Yes') selected @endif>Yes</option>
+                                                <option value="No" @if(optional($feedback4_1)->comply === 'No') selected @endif>No</option>
                                             </select>
                                             </td>
-                                            <td class="table-bordered col-4"><textarea id="feedback" name="feedback_4_1" class="form-control" rows="1" placeholder="e.g. AUT-01 - Acronym is not defined."></textarea></td>
+                                            <td class="table-bordered col-4"><input id="feedback" name="feedback_4_1" class="form-control" rows="1" 
+                                            value="@if ($feedback4_1){{ $feedback4_1->feedback }}@endif" placeholder="e.g. AUT-01 - Acronym is not defined.">
+                                            </input></td>
                                         </tr>
                                         <tr>
                                             <td class="table-dark table-bordered">4.2 Do the requirements include all known customer or system needs?</td>
                                             <td class="table-bordered"> 
                                             <select class="form-select" name="comply_4_2">
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
+                                                <option value="Yes" @if(optional($feedback4_2)->comply === 'Yes') selected @endif>Yes</option>
+                                                <option value="No" @if(optional($feedback4_2)->comply === 'No') selected @endif>No</option>
                                             </select>
                                             </td>
-                                            <td class="table-bordered col-4"><textarea id="feedback" name="feedback_4_2" class="form-control" rows="1"></textarea></td>
+                                            <td class="table-bordered col-4"><input id="feedback" name="feedback_4_2" class="form-control" rows="1"
+                                            value="@if ($feedback4_2){{ $feedback4_2->feedback }}@endif">
+                                            </input></td>
                                         </tr>
                                         <tr>
                                             <td class="table-dark table-bordered">4.3 Does each functional requirement specify input and output, as well as function, as appropriate?</td>
                                             <td class="table-bordered"> 
                                             <select class="form-select" name="comply_4_3">
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
+                                                <option value="Yes" @if(optional($feedback4_3)->comply === 'Yes') selected @endif>Yes</option>
+                                                <option value="No" @if(optional($feedback4_3)->comply === 'No') selected @endif>No</option>
                                             </select>
                                             </td>
-                                            <td class="table-bordered col-4"><textarea id="feedback" name="feedback_4_3" class="form-control" rows="1"></textarea></td>
+                                            <td class="table-bordered col-4"><input id="feedback" name="feedback_4_3" class="form-control" rows="1"
+                                            value="@if ($feedback4_3){{ $feedback4_3->feedback }}@endif">
+                                            </input></td>
                                         </tr>
                                         <tr>
                                             <td class="table-dark table-bordered">4.4 Is any relevant information missing from a requirement? If so, is it identified as To Be Determined (TBD)?</td>
                                             <td class="table-bordered"> 
                                             <select class="form-select" name="comply_4_4">
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
+                                                <option value="Yes" @if(optional($feedback4_4)->comply === 'Yes') selected @endif>Yes</option>
+                                                <option value="No" @if(optional($feedback4_4)->comply === 'No') selected @endif>No</option>
                                             </select>
                                             </td>
-                                            <td class="table-bordered col-4"><textarea id="feedback" name="feedback_4_4" class="form-control" rows="1"></textarea></td>
+                                            <td class="table-bordered col-4"><input id="feedback" name="feedback_4_4" class="form-control" rows="1"
+                                            value="@if ($feedback4_4){{ $feedback4_4->feedback }}@endif">
+                                            </input></td>
                                         </tr>
                                         <tr>
                                             <td class="table-dark table-bordered">4.5 Have all the relevant quality attributes (characteristics) been properly specified using measurable metrics?</td>
                                             <td class="table-bordered"> 
                                             <select class="form-select" name="comply_4_5">
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
+                                                <option value="Yes" @if(optional($feedback4_5)->comply === 'Yes') selected @endif>Yes</option>
+                                                <option value="No" @if(optional($feedback4_5)->comply === 'No') selected @endif>No</option>
                                             </select>
                                             </td>
-                                            <td class="table-bordered col-4"><textarea id="feedback" name="feedback_4_5" class="form-control" rows="1"></textarea></td>
+                                            <td class="table-bordered col-4"><input id="feedback" name="feedback_4_5" class="form-control" rows="1"
+                                            value="@if ($feedback4_5){{ $feedback4_5->feedback }}@endif">
+                                            </input></td>
                                         </tr>
                                         <tr>
-                                            <td class="table-dark table-bordered">4.6 Are all requirements actually requirements, not design or implementation solutions? Are all requirements organized in the relevant category (functional, quality, constraints, business rules)</td>
+                                            <td class="table-dark table-bordered">4.6 Are all requirements organized in the relevant category (functional, quality, constraints, business rules)</td>
                                             <td class="table-bordered"> 
                                             <select class="form-select" name="comply_4_6">
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
+                                                <option value="Yes" @if(optional($feedback4_6)->comply === 'Yes') selected @endif>Yes</option>
+                                                <option value="No" @if(optional($feedback4_6)->comply === 'No') selected @endif>No</option>
                                             </select>
                                             </td>
-                                            <td class="table-bordered col-4"><textarea id="feedback" name="feedback_4_6" class="form-control" rows="1"></textarea></td>
+                                            <td class="table-bordered col-4"><input id="feedback" name="feedback_4_6" class="form-control" rows="1"
+                                            value="@if ($feedback4_6){{ $feedback4_6->feedback }}@endif">
+                                            </input></td>
                                         </tr>
                                         <tr>
                                             <td class="table-dark table-bordered">4.7 Any significant functional or quality requirements are missing from the list?</td>
                                             <td class="table-bordered"> 
                                             <select class="form-select" name="comply_4_7">
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
+                                                <option value="Yes" @if(optional($feedback4_7)->comply === 'Yes') selected @endif>Yes</option>
+                                                <option value="No" @if(optional($feedback4_7)->comply === 'No') selected @endif>No</option>
                                             </select>
                                             </td>
-                                            <td class="table-bordered col-4"><textarea id="feedback" name="feedback_4_7" class="form-control" rows="1"></textarea></td>
+                                            <td class="table-bordered col-4"><input id="feedback" name="feedback_4_7" class="form-control" rows="1"
+                                            value="@if ($feedback4_7){{ $feedback4_7->feedback }}@endif">
+                                            </input></td>
                                         </tr>
                                         <tr>
                                             <td class="table-dark table-bordered">4.8 Are all requirements organized in the relevant category (functional, quality, constraints, business rules)</td>
                                             <td class="table-bordered"> 
                                             <select class="form-select" name="comply_4_8">
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
+                                                <option value="Yes" @if(optional($feedback4_8)->comply === 'Yes') selected @endif>Yes</option>
+                                                <option value="No" @if(optional($feedback4_8)->comply === 'No') selected @endif>No</option>
                                             </select>
                                             </td>
-                                            <td class="table-bordered col-4"><textarea id="feedback" name="feedback_4_8" class="form-control" rows="1"></textarea></td>
+                                            <td class="table-bordered col-4"><input id="feedback" name="feedback_4_8" class="form-control" rows="1"
+                                            value="@if ($feedback4_8){{ $feedback4_8->feedback }}@endif">
+                                            </input></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -366,21 +392,24 @@
                                             <td class="table-dark table-bordered">5.1 Are the requirements free of duplication with other requirements?</td>
                                             <td class="table-bordered"> 
                                             <select class="form-select" name="comply_5_1">
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
+                                                <option value="Yes" @if(optional($feedback5_1)->comply === 'Yes') selected @endif>Yes</option>
+                                                <option value="No" @if(optional($feedback5_1)->comply === 'No') selected @endif>No</option>
                                             </select>
                                             </td>
-                                            <td class="table-bordered col-4"><textarea id="feedback" name="feedback_5_1" class="form-control" rows="1" placeholder="e.g. AUT-01 - Acronym is not defined."></textarea></td>
+                                            <td class="table-bordered col-4"><input id="feedback" name="feedback_5_1" class="form-control" rows="1"
+                                            value="@if ($feedback5_1){{ $feedback5_1->feedback }}@endif" placeholder="e.g. AUT-01 - Acronym is not defined.">
+                                            </input></td>
                                         </tr>
                                         <tr>
                                             <td class="table-dark table-bordered">5.2  Are the requirements free of conflict with other requirements?</td>
                                             <td class="table-bordered"> 
                                             <select class="form-select" name="comply_5_2">
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
-                                            </select>
+                                                <option value="Yes" @if(optional($feedback5_2)->comply === 'Yes') selected @endif>Yes</option>
+                                                <option value="No" @if(optional($feedback5_2)->comply === 'No') selected @endif>No</option>
                                             </td>
-                                            <td class="table-bordered col-4"><textarea id="feedback" name="feedback_5_2" class="form-control" rows="1"></textarea></td>
+                                            <td class="table-bordered col-4"><input id="feedback" name="feedback_5_2" class="form-control" rows="1"
+                                            value="@if ($feedback5_2){{ $feedback5_2->feedback }}@endif">
+                                            </input></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -404,11 +433,13 @@
                                             <td class="table-dark table-bordered">6.1 Is each requirement written in clear and concise language?</td>
                                             <td class="table-bordered"> 
                                             <select class="form-select" name="comply_6_1">
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
+                                                <option value="Yes" @if(optional($feedback6_1)->comply === 'Yes') selected @endif>Yes</option>
+                                                <option value="No" @if(optional($feedback6_1)->comply === 'No') selected @endif>No</option>
                                             </select>
                                             </td>
-                                            <td class="table-bordered col-4"><textarea id="feedback" name="feedback_6_1" class="form-control" rows="1" placeholder="e.g. AUT-01 - Acronym is not defined."></textarea></td>
+                                            <td class="table-bordered col-4"><input id="feedback" name="feedback_6_1" class="form-control" rows="1" 
+                                            value="@if ($feedback6_1){{ $feedback6_1->feedback }}@endif"placeholder="e.g. AUT-01 - Acronym is not defined.">
+                                            </input></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -432,21 +463,25 @@
                                             <td class="table-dark table-bordered">7.1 Does each requirement have only one interpretation?</td>
                                             <td class="table-bordered"> 
                                             <select class="form-select" name="comply_7_1">
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
+                                                <option value="Yes" @if(optional($feedback7_1)->comply === 'Yes') selected @endif>Yes</option>
+                                                <option value="No" @if(optional($feedback7_1)->comply === 'No') selected @endif>No</option>
                                             </select>
                                             </td>
-                                            <td class="table-bordered col-4"><textarea id="feedback" name="feedback_7_1" class="form-control" rows="1" placeholder="e.g. AUT-01 - Acronym is not defined."></textarea></td>
+                                            <td class="table-bordered col-4"><input id="feedback" name="feedback_7_1" class="form-control" rows="1" 
+                                            value="@if ($feedback7_1){{ $feedback7_1->feedback }}@endif" placeholder="e.g. AUT-01 - Acronym is not defined.">
+                                            </input></td>
                                         </tr>
                                         <tr>
                                             <td class="table-dark table-bordered">7.2 If a term could have multiple meanings, is it defined?</td>
                                             <td class="table-bordered"> 
                                             <select class="form-select" name="comply_7_2">
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
+                                                <option value="Yes" @if(optional($feedback7_2)->comply === 'Yes') selected @endif>Yes</option>
+                                                <option value="No" @if(optional($feedback7_2)->comply === 'No') selected @endif>No</option>
                                             </select>
                                             </td>
-                                            <td class="table-bordered col-4"><textarea id="feedback" name="feedback_7_2" class="form-control" rows="1"></textarea></td>
+                                            <td class="table-bordered col-4"><input id="feedback" name="feedback_7_2" class="form-control" rows="1"
+                                            value="@if ($feedback7_2){{ $feedback7_2->feedback }}@endif">
+                                            </input></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -470,11 +505,13 @@
                                             <td class="table-dark table-bordered">8.1 Are all requirements actually requirements, not design or implementation solutions?</td>
                                             <td class="table-bordered"> 
                                             <select class="form-select" name="comply_8_1">
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
+                                                <option value="Yes" @if(optional($feedback8_1)->comply === 'Yes') selected @endif>Yes</option>
+                                                <option value="No" @if(optional($feedback8_1)->comply === 'No') selected @endif>No</option>
                                             </select>
                                             </td>
-                                            <td class="table-bordered col-4"><textarea id="feedback" name="feedback_8_1" class="form-control" rows="1" placeholder="e.g. AUT-01 - Acronym is not defined."></textarea></td>
+                                            <td class="table-bordered col-4"><input id="feedback" name="feedback_8_1" class="form-control" rows="1" 
+                                            value="@if ($feedback8_1){{ $feedback8_1->feedback }}@endif" placeholder="e.g. AUT-01 - Acronym is not defined.">
+                                            </input></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -493,12 +530,12 @@
                                         <h5>Additional Feedback</h5>
                                         <p class="text-muted">If you detect additional feedback but cannot be listed in any of the defect categories, write here.</p>
                                         <div>
-                                            <textarea required="" class="form-control" rows="5" name="feedback_9" placeholder="e.g. AUT-01 - Acronym is not defined."></textarea>
+                                            <textarea class="form-control"rows="5" name="feedback_9">@if ($feedback9){{ $feedback9->feedback }}@endif</textarea>
                                         </div>
                                     </div>
                                     <div>
                                         <br>
-                                    <button class="btn btn-success form-control" type="submit">Save</button>
+                                    <button class="btn btn-success form-control" name="submit_review" type="submit">Submit Feedback</button>
                                     </div>
                                 </div>
                             </div>
@@ -507,9 +544,16 @@
                 </div>
                 
                 <ul class="pager wizard twitter-bs-wizard-pager-link">
-                    <li class="previous disabled"><a href="javascript: void(0);">Previous</a></li>
+                    <li class="previous disabled"><a href="javascript: void(0);">Previous</a></li>             
                     <li class="next"><a href="javascript: void(0);">Next</a></li>
+                    <li><button class="btn btn-success" 
+                            name="save_progress" 
+                            value="true" 
+                            type="submit">Save Progress
+                    </button></li>
                 </ul>
+
+                
             </div>
         </div>
     </div>

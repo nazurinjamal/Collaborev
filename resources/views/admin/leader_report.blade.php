@@ -50,32 +50,51 @@
                                         <td>
                                         @php
                                             $status = $document->status;
+                                            
                                             @endphp
                                             @if ($status === 'Validated')
                                             <h6 name="status" class="mb-0" style="color:green;">
                                                 Validated</h6>
 
-                                            @else
+                                            @elseif ($status === 'Unvalidated')
                                             <h6 name="status" class="mb-0" style="color:red;">
                                                 Unvalidated</h6>
-                                                
+
+                                            @else
+                                            <h6 name="status" class="mb-0" style="color:orange;">
+                                                In Progress</h6>
                                             @endif
                                         </td>
 
+                                        @php
+                                        $reviewedCount = App\Models\Reviewer::where('document_id', $document->id)
+                                                ->where('review_status', 'Reviewed')
+                                                ->count();
+                                        @endphp
                                         <td>
                                             <form action="{{ route('validate', ['document' => $document->id]) }}" method="GET" id="validateForm">
 
-                                            @if ($status === 'Validated')
-                                            <button type="button" class="btn btn-secondary" disabled>
-                                                <i class="ri-task-line align-middle"></i> Validate</button>
+                                            @if ($document->reviewer1_id == NULL)
+                                            <center><button type="button" class="btn btn-secondary" disabled>
+                                                No Reviewers Assigned</button></center>     
+                                                
+                                            @elseif ($status === 'Validated')
+                                                <center><button type="button" class="btn btn-success" disabled>
+                                                Validated</button></center>
+                                          
 
-                                            @else
-                                            <button type="submit" class="btn btn-success" 
+                                            @elseif ($reviewedCount === 3 && $document->reviewer1_id != NULL)
+                                            <center><button type="submit" class="btn btn-success" 
                                                 data-document-id="{{ $document->id }}"
                                                 data-document-name="{{ $document->docname }}"
-                                                ><i class="ri-task-line align-middle"></i> Validate</button>
+                                                ><i class="ri-task-line align-middle"></i> Validate</button></center>
+                                            
+                                            @else
+                                            <center><button type="button" class="btn btn-warning">
+                                                Review Ongoing</button></center>
                                                 
                                             @endif
+
 
                                                 
                                             </form>

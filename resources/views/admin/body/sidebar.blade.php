@@ -14,6 +14,7 @@ $adminData = App\Models\User::find($id);
             </div>
             <div class="mt-3">
                 <h4 class="font-size-16 mb-1">{{$adminData->name}}</h4>
+                <span class="text-primary">AUTHOR</span><br>
                 <span class="text-muted"><i class="ri-checkbox-blank-circle-fill align-middle font-size-10 text-success"></i> Online</span>
             </div>
         </div>

@@ -100,40 +100,28 @@
                                                         @csrf
                                                     <div class="row">
                                                         <div class="col-l">
-                                                            <div class="input-group mb-3">
-                                                                <select id="reviewer1" class="form-control mt-1 w-full" type="text" name="reviewer1">
-                                                                    <option>Choose Reviewer 1</option>
-                                                                    @foreach ($reviewers as $reviewer)                                   
-                                                                        <option value="{{ $reviewer->id }}">{{ $reviewer->name }}</option>                                  
-                                                                        @endforeach
-                                                                </select>
+                                                        <h6 class="modal-title">Choose <b>ONLY 3</b> Reviewers :-</h6> 
+                                                            <div class="form-check mb-3"><br>                                                                               
+                                                                    @foreach ($reviewers as $reviewer)                                     
+                                                                        <input class="form-check-input" type="checkbox" 
+                                                                        name="reviewers[]" value="{{ $reviewer->id }}" 
+                                                                        class="reviewer-checkbox">
+                                                                        <label class="form-check-label">{{ $reviewer->name }}</label>
+                                                                        <br>
+                                                                                                        
+                                                                    @endforeach
+                                                                    
                                                             </div>
-                                                            <div class="input-group mb-3">                            
-                                                                <select id="reviewer2" class="form-control mt-1 w-full" type="text" name="reviewer2">
-                                                                    <option>Choose Reviewer 2</option>
-                                                                    @foreach ($reviewers as $reviewer)                                
-                                                                        <option value="{{ $reviewer->id }}">{{ $reviewer->name }}</option>                             
-                                                                        @endforeach
-                                                                </select>
-                                                            </div>
-                                                            <div class="input-group mb-3">
-                                                                <select id="reviewer3" class="form-control mt-1 w-full " type="text" name="reviewer3">
-                                                                    <option>Choose Reviewer 3</option>
-                                                                    @foreach ($reviewers as $reviewer)                                
-                                                                        <option value="{{ $reviewer->id }}">{{ $reviewer->name }}</option>                         
-                                                                        @endforeach
-                                                                </select>
-                                                            </div>
-
-                                                            <button class="btn btn-success mt-1 w-full" style="float: right;" type="submit">Assign</button>
-                                                    
+                                                            
+                                                            <button class="btn btn-success mt-1 w-full" style="float: right;" type="submit">Assign</button>                                                 
                                                         </div>
-                                                    </div>
+                                                    </div>                                           
                                                 </div>
                                             </div>
                                         </div>
                                     </div> <!-- end modal -->
                                     </form>
+
                                     <!-- end -->
                                     @endforeach
                                 </tbody><!-- end tbody -->
@@ -160,9 +148,11 @@
         });
     });
 </script>
-@endpush
 
+
+@endpush
             </div><!-- end col -->
         </div><!-- end row -->
 
-  @endsection
+  
+@endsection

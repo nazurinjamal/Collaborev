@@ -56,5 +56,18 @@ class ReviewLeaderController extends Controller
         return redirect('/reviewleader/report');
     }
 
+    public function remove(Request $request, Feedback $feedback)
+    {
+        $feedback_id =  $feedback->id;
+        $data = Feedback::find($feedback_id);
+
+        $feedback_id = $request->input('feedback_id');
+
+
+        $feedback->feedback = 'No feedback provided';
+        $feedback->save();
+
+        return redirect()->back(); 
+    }
 }
 

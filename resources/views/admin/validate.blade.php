@@ -29,41 +29,53 @@
                                 </button></center>
                             </form>
                                 <hr>
-                    
+
+                            
                             <table id="datatable"  class="table table-centered mb-0 align-middle table-hover" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                 <thead class="table-light">
                                     <tr>
-                                        <th colspan="3" style="background:#0a1832;color:white;"><center>Feedback from {{ $document->reviewer1->name }}</center></th>
+                                        <th colspan="4" style="background:#0a1832;color:white;"><center>Feedback from {{ $document->reviewer1->name }}</center></th>
                                     </tr>
                                     <tr>
                                         <th style="width:50%;">Question</th>
                                         <th style="width:10%;text-align:center;">Comply</th>
                                         <th>Feedback</th>
+                                        <th></th>
                                     </tr>
                                 </thead><!-- end thead -->
-                                <tbody>
-                                   @foreach ($feedbackReviewer1 as $feedback)
-                                    <tr>
-                                        <td>{{ $feedback->question }}</td>
-                                        <td style="text-align:center;">{{ $feedback->comply }}</td>
-                                        <td>{{ $feedback->feedback ?? 'No feedback provided' }}</td>                                                                                                 
-                                    </tr> 
+                                
+                                    <tbody>
+                                    @foreach ($feedbackReviewer1 as $feedback)
+                                        <tr>
+                                            <td>{{ $feedback->question }}</td>
+                                            <td style="text-align:center;">{{ $feedback->comply }}</td>
+                                            <td>{{ $feedback->feedback ?? 'No feedback provided' }}</td>   
+                                            <td>
+                                                <form method="post" action="/remove/ {{ $feedback->id }}">
+                                                    @csrf
+                                                    <input type="hidden" name="feedback_id" value="{{ $feedback->id }}">
+                                                    <button type="submit" class="btn btn-danger font-12">Remove Feedback</button>
+                                                </form>                         
+                                            </td>                                                                  
+                                        </tr> 
                                     @endforeach
-                                    <!-- end -->
-                                </tbody><!-- end tbody -->
+                                        <!-- end -->
+                                    </tbody><!-- end tbody -->
+                                </form>
                             </table> <!-- end table -->
 
                             <br><hr>
                             
-                            <table  id="complex-header-datatable"  class="table table-centered mb-0 align-middle table-hover" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                            <table  id="complex-datatable"  class="table table-centered mb-0 align-middle table-hover" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                 <thead class="table-light">
                                     <tr>
-                                        <th colspan="3" style="background:#0a1832;color:white;"><center>Feedback from {{ $document->reviewer2->name }}</center></th>
+                                        <th colspan="4" style="background:#0a1832;color:white;"><center>Feedback from {{ $document->reviewer2->name }}</center></th>
                                     </tr>
                                     <tr>
                                         <th style="width:50%;">Question</th>
-                                        <th style="width:10%;text-align:center;">Comply</th>
-                                        <th>Feedback</th>
+                                        <th style="width:10%;">Comply</th>
+                                        <th>Feedback</th> 
+                                        <th></th>                   
                                     </tr>
                                 </thead><!-- end thead -->
                                 <tbody>
@@ -71,7 +83,15 @@
                                     <tr>
                                         <td>{{ $feedback->question }}</td>
                                         <td style="text-align:center;">{{ $feedback->comply }}</td>
-                                        <td>{{ $feedback->feedback ?? 'No feedback provided' }}</td>                                                                                                 
+                                        <td>{{ $feedback->feedback ?? 'No feedback provided' }}</td>  
+                                        <td>
+                                            <form method="post" action="/remove/ {{ $feedback->id }}">
+                                                @csrf
+                                                <input type="hidden" name="feedback_id" value="{{ $feedback->id }}">
+                                                <button type="submit" class="btn btn-danger font-12">Remove Feedback</button>
+                                            </form>                         
+                                        </td>          
+                                                                                                                               
                                     </tr> 
                                     @endforeach
                                     <!-- end -->
@@ -83,12 +103,13 @@
                             <table id="state-saving-datatable"  class="table table-centered mb-0 align-middle table-hover" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                 <thead class="table-light">
                                     <tr>
-                                        <th colspan="3" style="background:#0a1832;color:white;"><center>Feedback from {{ $document->reviewer3->name }}</center></th>
+                                        <th colspan="4" style="background:#0a1832;color:white;"><center>Feedback from {{ $document->reviewer3->name }}</center></th>
                                     </tr>
                                     <tr>
                                         <th style="width:50%;">Question</th>
                                         <th style="width:10%;text-align:center;">Comply</th>
                                         <th>Feedback</th>
+                                        <th></th>
                                     </tr>
                                 </thead><!-- end thead -->
                                 <tbody>
@@ -96,7 +117,14 @@
                                     <tr>
                                         <td>{{ $feedback->question }}</td>
                                         <td style="text-align:center;">{{ $feedback->comply }}</td>
-                                        <td>{{ $feedback->feedback ?? 'No feedback provided' }}</td>                                                                                                 
+                                        <td>{{ $feedback->feedback ?? 'No feedback provided' }}</td> 
+                                        <td>
+                                            <form method="post" action="/remove/ {{ $feedback->id }}">
+                                                @csrf
+                                                <input type="hidden" name="feedback_id" value="{{ $feedback->id }}">
+                                                <button type="submit" class="btn btn-danger font-12">Remove Feedback</button>
+                                            </form>                         
+                                        </td>                                                                                                  
                                     </tr> 
                                     @endforeach
                                     <!-- end -->

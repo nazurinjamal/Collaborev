@@ -11,6 +11,9 @@
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.ico')}}">
 
+        <!-- Sweet Alert-->
+        <link href="{{ asset('backend/assets/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
+
         <!-- jquery.vectormap css -->
         <link href="{{ asset('backend/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css')}}" rel="stylesheet" type="text/css" />
 
@@ -129,6 +132,12 @@
         <script src="{{ asset('backend/assets/js/pages/datatables.init.js') }}"></script>
 
         <script src="{{ asset('backend/assets/js/app.js') }}"></script>
+
+        <!-- Sweet Alerts js -->
+        <script src="{{ asset('backend/assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
+
+        <!-- Sweet alert init js-->
+        <script src="{{ asset('backend/assets/js/pages/sweet-alerts.init.js') }}"></script>
 
     </body>
 

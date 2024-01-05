@@ -74,8 +74,8 @@
                                         <td>
                                         <form action="{{ route('review', ['document' => $document->id]) }}" method="GET" id="reviewForm">
                                             @csrf
-                                            <input type="hidden" name="document_id" id="document_id_input" value="">
-                                            <input type="hidden" name="document_name" id="document_name_input" value="">
+                                            <input type="hidden" name="document_id" id="document_id_input">
+                                            <input type="hidden" name="document_name" id="document_name_input">
                                             
                                 
 

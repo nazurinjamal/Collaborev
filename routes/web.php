@@ -107,6 +107,8 @@ Route::post('/author/import', function (Request $request) {
 
 Route::post('/reviewleader/storeReviewer/{document}', [ReviewerController::class, 'StoreReviewer']);
 
+Route::post('/remove/{feedback}', [ReviewLeaderController::class, 'remove']);
+
 Route::get('/export-pdf/{document}', [PdfController::class, 'exportPdfWithTable']);
 
 

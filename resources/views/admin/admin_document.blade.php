@@ -20,12 +20,18 @@
         <!-- Responsive datatable examples -->
         <link href="{{ asset('backend/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />  
 
+        <!-- Sweet Alert-->
+        <link href="{{ asset('backend/assets/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
+
         <!-- Bootstrap Css -->
         <link href="{{ asset('backend/assets/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
         <!-- Icons Css -->
         <link href="{{ asset('backend/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="{{ asset('backend/assets/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
+
+        <!-- Lightbox css -->
+        <link href="{{ asset('backend/assets/libs/magnific-popup/magnific-popup.css')}}" rel="stylesheet" type="text/css" />
 
     </head>
 
@@ -129,6 +135,19 @@
         <script src="{{ asset('backend/assets/js/pages/datatables.init.js') }}"></script>
 
         <script src="{{ asset('backend/assets/js/app.js') }}"></script>
+
+        <!-- Sweet Alerts js -->
+        <script src="{{ asset('backend/assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
+
+        <!-- Sweet alert init js-->
+        <script src="{{ asset('backend/assets/js/pages/sweet-alerts.init.js') }}"></script>
+
+        <!-- Magnific Popup-->
+        <script src="{{ asset('backend/assets/libs/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
+
+        <!-- lightbox init js-->
+        <script src="{{ asset('backend/assets/js/pages/lightbox.init.js') }}"></script>
+
 
     </body>
 
