@@ -38,24 +38,26 @@
                         <!-- Table of Documents Added -->
                         <div class="table-responsive">
                             <table class="table table-centered mb-0 align-middle table-hover table-nowrap">
-                                <thead class="table-light">
+                                <thead class="table-dark">
                                     <tr>
-                                        <th>Author</th>
-                                        <th>Review Leader</th>
+                                        <th>No.</th>
                                         <th>Document Name</th>
                                         <th>No. of Requirements</th>
+                                        <th>Assigned By</th>
                                         <th>Status</th>
                                         <th></th>
                                     </tr>
                                 </thead><!-- end thead -->
                                 <tbody>
-                                    @foreach ($documents as $document)
+                                    @foreach ($documents as $index => $document)
                             
                                     <tr>
-                                        <td><h6 class="mb-0">{{ $document->author->name }}</h6></td>
-                                        <td><h6 class="mb-0">{{ $document->reviewLeader->name }}</h6></td>
+                                        <td><h6 class="mb-0">{{ $index + 1 }}</h6></td>
+                                        
+                                    
                                         <td><h6 class="mb-0">{{ $document->docname }}</h6></td>
                                         <td><h6 class="mb-0"><center>{{ $document->requirements->count() }} </center></h6></td>
+                                        <td><h6 class="mb-0">{{ $document->reviewLeader->name }}</h6></td>
                                         <td>
                                             @php
                                                 $reviewerStatus = $document->reviewers()->where('reviewer_id', auth()->id())->value('review_status');

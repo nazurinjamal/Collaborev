@@ -42,8 +42,9 @@
                         <!-- Table of Documents Added -->
                         <div class="table-responsive">
                             <table class="table table-centered mb-0 align-middle table-hover table-nowrap">
-                                <thead class="table-light">
+                                <thead class="table-dark">
                                     <tr>
+                                        <th>No.</th>
                                         <th>Author</th>
                                         <th>Name</th>
                                         <th>No. of Requirements</th>
@@ -51,7 +52,7 @@
                                     </tr>
                                 </thead><!-- end thead -->
                                 <tbody>
-                                    @foreach ($documents as $document)
+                                    @foreach ($documents as $index => $document)
 
                                     @php
                                     $documentAssigned = App\Models\Document::where('review_leader_id', $reviewLeader)
@@ -63,6 +64,7 @@
                                     @endphp
                             
                                     <tr>
+                                        <td><h6 class="mb-0">{{ $index + 1 }}</h6></td>
                                         <td><h6 class="mb-0">{{ $document->user->name }}</h6></td>
                                         <td><h6 class="mb-0">{{ $document->docname }}</h6></td>
                                         <td><h6 class="mb-0">{{ $document->requirements->count() }} </h6></td>

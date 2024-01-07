@@ -51,4 +51,9 @@ class Feedback extends Model
             $requirement->user_id = Auth::user()->id;
         });
     }
+
+    public function reviewer()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

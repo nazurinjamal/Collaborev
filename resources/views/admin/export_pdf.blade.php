@@ -41,6 +41,7 @@
                 <div class="card">
                     <div class="card-body">
                             <h4 style="text-align:right;">Collaborev.</h4>
+                            <h4>Author : {{ $document->author->name }} </h4>     
                             <h4>Review Leader : {{ $document->reviewLeader->name }} </h4>                         
                             <h4>Reviewers : 
                                 <ol>
@@ -52,7 +53,7 @@
                             <h4 style="text-align:right;">Created at : {{ $document->created_at->format('d-m-Y') }}</h4>
                             <h4 style="text-align:right;">Validated at : {{ $document->updated_at->format('d-m-Y') }}</h4>
                             <br><hr style="border: 1px solid black;"><br>
-                            <h3><center>{{ $document_name }} Report</center></h3>
+                            <h1><center>{{ $document_name }} Report</center></h1>
                             <table id="datatable-buttons" iclass="table table-responsive table-bordered " style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                     

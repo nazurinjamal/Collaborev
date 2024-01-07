@@ -41,10 +41,10 @@
                             <table class="table table-centered mb-0 align-middle table-hover table-nowrap">
                                 <thead class="table-dark">
                                     <tr>
+                                        <th>No.</th>
                                         <th>Document Name</th>
-                                        <th>No. of Requirements</th>
                                         <th>Created By</th>
-                                        <th>Assigned By</th>
+                                        <th>Reviewers</th>
                                         <th>Status</th>
                                         <th></th>
                                     </tr>
@@ -52,7 +52,7 @@
                                 <tbody>
 
 
-                                @forelse ($documents as $document)
+                                @forelse ($documents as $index => $document)
                                     <tr>
 
                                             @php
@@ -60,10 +60,12 @@
                                                 $reviewerFeedback = $document->feedbacks()->where('user_id', auth()->id())->get();
                                             @endphp
 
-                                        <td><h6 class="mb-0">{{ $document->docname }}</h6></td>
-                                        <td><h6 class="mb-0"><center>{{ $document->requirements->count() }}</center> </h6></td>
+                                        <td><h6 class="mb-0">{{ $index + 1 }}</h6></td>       
+                                        <td><h6 class="mb-0">{{ $document->docname }}</h6></td>                          
                                         <td><h6 class="mb-0">{{ $document->author->name }}</h6></td>
-                                        <td><h6 class="mb-0">{{ $document->reviewLeader->name }}</h6></td>
+                                        <td><h6 class="mb-0">1. {{ $document->reviewer1->name }}<br>
+                                        2. {{ $document->reviewer2->name }}<br>
+                                        3. {{ $document->reviewer3->name }}</h6></td>
                                         @if ($reviewerStatus === 'Reviewed')
                                             <td><h6 class="mb-0 text-success">Reviewed</h6></td>
                                         @else

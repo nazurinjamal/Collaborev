@@ -29,15 +29,38 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
+                        <h2 class="card-title">{{ $document_name }} Report</h2>
+                        by Collaborev.
+                        <h2></h2>
 
-                        <h4 class="card-title">{{ $document_name }} Report</h4>
+                        <table>
+                        <tr>
+                            <td>Author</td>
+                            <td>{{ ($document->author)->name }}</td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Review Leader</td>
+                            <td>{{ $document->reviewLeader->name }}</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>Created at</td>
+                            <td>{{ $document->created_at->format('d-m-Y') }}</td>
+                        </tr>
 
-                        <table id="datatable-buttons" iclass="table table-responsive table-bordered " style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                        <tr>
+                            <td>Validated at</td>                           
+                            <td>{{ $document->updated_at->format('d-m-Y') }}</td>
+                        </tr>
+                        </table>
+
+                        <table>
                             <thead>
-                    
                             <tr>
-                                <th style="width: 50%;">Question</th>
-                                <th  style="width: 10%;">Comply</th>
+                                <th>Reviewer</th>
+                                <th>Question</th>
+                                <th>Comply</th>
                                 <th>Feedback</th>
 
                             </tr>
@@ -46,10 +69,10 @@
                             <tbody>
                             @foreach ($feedbacks as $feedback)
                             <tr>
-                                
+                                <td>{{ optional($feedback->reviewer)->name }}</td>
                                 <td>{{ $feedback->question }}</td>
                                 <td style="text-align: center;">{{ $feedback->comply }}</td>
-                                <td>{{ $feedback->feedback }}</td>
+                                <td>{{ $feedback->feedback ?? 'No feedback provided' }}</td>
                             </tr>
                             @endforeach   
                             

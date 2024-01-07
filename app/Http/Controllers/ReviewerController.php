@@ -113,11 +113,6 @@ class ReviewerController extends Controller
         ->where('question','4.7 Any significant functional or quality requirements are missing from the list?')
         ->first();
 
-        $feedback4_8 = Feedback::where('document_id', $document_id)
-        ->where('user_id', $reviewer_id)
-        ->where('question','4.8 Are all requirements organized in the relevant category (functional, quality, constraints, business rules)')
-        ->first();
-
         $feedback5_1 = Feedback::where('document_id', $document_id)
         ->where('user_id', $reviewer_id)
         ->where('question','5.1 Are the requirements free of duplication with other requirements?')
@@ -171,7 +166,6 @@ class ReviewerController extends Controller
             'feedback4_5' => $feedback4_5,
             'feedback4_6' => $feedback4_6,
             'feedback4_7' => $feedback4_7,
-            'feedback4_8' => $feedback4_8,
             'feedback5_1' => $feedback5_1,
             'feedback5_2' => $feedback5_2,
             'feedback6_1' => $feedback6_1,
@@ -258,11 +252,6 @@ class ReviewerController extends Controller
         ->where('question','4.7 Any significant functional or quality requirements are missing from the list?')
         ->first();
 
-        $data4_8 = Feedback::where('document_id', $document_id)
-        ->where('user_id', $reviewer_id)
-        ->where('question','4.8 Are all requirements organized in the relevant category (functional, quality, constraints, business rules)')
-        ->first();
-
         $data5_1 = Feedback::where('document_id', $document_id)
         ->where('user_id', $reviewer_id)
         ->where('question','5.1 Are the requirements free of duplication with other requirements?')
@@ -339,9 +328,6 @@ class ReviewerController extends Controller
         
         $comply_4_7 = $request->input('comply_4_7');
         $feedback_4_7 = $request->input('feedback_4_7');
-        
-        $comply_4_8 = $request->input('comply_4_8');
-        $feedback_4_8 = $request->input('feedback_4_8');
         
         $comply_5_1 = $request->input('comply_5_1');
         $feedback_5_1 = $request->input('feedback_5_1');
@@ -566,19 +552,6 @@ class ReviewerController extends Controller
                 'document_id' => $document_id, 
             ]); }
 
-            if ($data4_8) {
-                $data4_8->comply = $comply_4_8;
-                $data4_8->feedback = $feedback_4_8;
-                $data4_8->save();
-                }
-            else {
-            Feedback::create([
-                'question' => '4.8 Are all requirements organized in the relevant category (functional, quality, constraints, business rules)', 
-                'comply' => $comply_4_8,
-                'feedback' => $feedback_4_8,
-                'reviewer_id' => auth()->id(),
-                'document_id' => $document_id, 
-            ]); }
 
             if ($data5_1) {
                 $data5_1->comply = $comply_5_1;
@@ -875,20 +848,6 @@ class ReviewerController extends Controller
                     'comply' => $comply_4_7,
                     'feedback' => $feedback_4_7,
                     'reviewer_id' => auth()->id(), 
-                    'document_id' => $document_id, 
-                ]); }
-    
-                if ($data4_8) {
-                    $data4_8->comply = $comply_4_8;
-                    $data4_8->feedback = $feedback_4_8;
-                    $data4_8->save();
-                    }
-                else {
-                Feedback::create([
-                    'question' => '4.8 Are all requirements organized in the relevant category (functional, quality, constraints, business rules)', 
-                    'comply' => $comply_4_8,
-                    'feedback' => $feedback_4_8,
-                    'reviewer_id' => auth()->id(),
                     'document_id' => $document_id, 
                 ]); }
     

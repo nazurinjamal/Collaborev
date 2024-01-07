@@ -30,6 +30,7 @@
         }])->find($userId);                         
         $reviewLeaders = App\Models\User::where('role', 'Review Leader')
         ->get();
+        
     
 
         @endphp   
@@ -40,8 +41,9 @@
                         <!-- Table of Documents Added -->
                         <div class="table-responsive">
                             <table class="table table-centered mb-0 align-middle table-hover table-nowrap">
-                                <thead class="table-light">
+                                <thead class="table-dark">
                                     <tr>
+                                        <th>No.</th>
                                         <th>Name</th>
                                         <th>No. of Requirements</th>
                                         <th>Review Leader</th>
@@ -50,8 +52,9 @@
                                     </tr>
                                 </thead><!-- end thead -->
                                 <tbody>
-                                    @foreach ($user->documents as $document)
+                                    @foreach ($user->documents as $index => $document)
                                     <tr>
+                                        <td><h6 class="mb-0">{{ $index + 1 }}</h6></td>
                                         <td><h6 class="mb-0">{{ $document->docname }}</h6></td>
                                         <td><h6 class="mb-0">{{ $document->requirements_count }}</h6></td>
                                         <td><h6 class="mb-0">{{ $document->reviewLeader->name }}</h6></td>     

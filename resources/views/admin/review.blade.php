@@ -358,18 +358,6 @@
                                             value="@if ($feedback4_7){{ $feedback4_7->feedback }}@endif">
                                             </input></td>
                                         </tr>
-                                        <tr>
-                                            <td class="table-dark table-bordered">4.8 Are all requirements organized in the relevant category (functional, quality, constraints, business rules)</td>
-                                            <td class="table-bordered"> 
-                                            <select class="form-select" name="comply_4_8">
-                                                <option value="Yes" @if(optional($feedback4_8)->comply === 'Yes') selected @endif>Yes</option>
-                                                <option value="No" @if(optional($feedback4_8)->comply === 'No') selected @endif>No</option>
-                                            </select>
-                                            </td>
-                                            <td class="table-bordered col-4"><input id="feedback" name="feedback_4_8" class="form-control" rows="1"
-                                            value="@if ($feedback4_8){{ $feedback4_8->feedback }}@endif">
-                                            </input></td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>

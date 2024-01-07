@@ -74,8 +74,12 @@
                     </div>
                 </div>
                 <!-- end row -->
-                <input type="submit" class="btn btn-info waves-effect waves-light" value="Update Profile">
+                <center><input type="submit" class="btn btn-info waves-effect waves-light" value="Update My Profile"></center>
+                <br><br>
+                <a href="{{route('profile.delete')}}" class="text-danger" style="float:right;" data-bs-toggle="tooltip" data-bs-placement="top" title="Once you clicked this, you cannot undo it!">Delete My Account</a>
                 </form>
+
+                
 
             </div>
         </div>
